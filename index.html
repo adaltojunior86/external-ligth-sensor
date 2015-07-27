@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #lua{
+            border-radius: 100%;
+            background-color: blue;
+            width: 300px;
+            height: 300px;
+            margin: auto;
+        }
+
+        #sol{
+            border-radius: 100%;
+            background-color: yellow;
+            width: 300px;
+            height: 300px;
+            margin: auto;
+        }
+    </style>
+    <script>
+
+            var hideElement = function (elementId) {
+                var element = document.getElementById(elementId);
+                element.style.display = 'none';
+            };
+
+            var showElement = function (elementId) {
+                var element = document.getElementById(elementId);
+                element.style.display = 'block';
+            };
+
+            window.addEventListener("devicelight", function (event) {
+
+                var value = event.value;
+                var elementToShow = 'lua';
+                var elementToHide = 'sol';
+
+                if (value > 50) {
+                    elementToShow = 'sol';
+                    elementToHide = 'lua';
+                }
+
+                showElement(elementToShow);
+                hideElement(elementToHide);
+
+            });
+
+    </script>
+</head>
+<body>
+
+<div id="sol">
+
+</div>
+<div id="lua">
+
+</div>
+
+</body>
+</html>
